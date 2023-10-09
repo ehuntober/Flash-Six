@@ -22,12 +22,35 @@ body {
     display: none;
   }
   
+  #hearts {
+    margin: 10px;
+  }
+  
+  .heart-icon {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    display: inline-block;
+    margin: 0 5px;
+    border-radius: 50%;
+  }
+  
   #color-circle {
     width: 200px;
     height: 200px;
     border-radius: 50%;
     margin: 20px auto;
     background-color: red; /* Initial color, change dynamically with JavaScript */
+  }
+  
+  #level {
+    font-size: 1.5em;
+    margin: 10px;
+  }
+  
+  #countdown {
+    font-size: 1.5em;
+    margin: 10px;
   }
   
   #score {
