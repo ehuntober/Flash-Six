@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  #preloader, #instruction-box, #start-box, #game-container {
+    text-align: center;
+  }
+  
+  #preloader {
+    font-size: 2em;
+    animation: blink 1s infinite;
+  }
+  
+  #instruction-box, #start-box, #game-container {
+    display: none;
+  }
+  
+  #color-circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 20px auto;
+    background-color: red; /* Initial color, change dynamically with JavaScript */
+  }
+  
+  #score {
+    font-size: 1.5em;
+  }
+  
+  .color-box {
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+    cursor: pointer;
+  }
+  
+  #red { background-color: red; }
+  #green { background-color: green; }
+  #yellow { background-color: yellow; }
+  #blue { background-color: blue; }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+  }
+  

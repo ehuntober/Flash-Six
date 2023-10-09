@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flash Six</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="preloader" class="blink">Flash Six</div>
+  <div id="instruction-box" class="hidden">
+    <p>Green means Red</p>
+    <p>Red means Green</p>
+    <p>Yellow means Blue</p>
+    <p>Blue means Yellow</p>
+  </div>
+  <div id="start-box" class="hidden">
+    <p>Tap to start</p>
+  </div>
+  <div id="game-container" class="hidden">
+    <div id="color-circle"></div>
+    <div id="score">Score: <span id="score-value">0</span></div>
+    <div id="color-boxes">
+      <div class="color-box" id="red"></div>
+      <div class="color-box" id="green"></div>
+      <div class="color-box" id="yellow"></div>
+      <div class="color-box" id="blue"></div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
