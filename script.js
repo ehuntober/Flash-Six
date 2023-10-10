@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function () {
     setTimeout(function () {
       preloader.style.display = 'none';
       instructionBox.style.display = 'block';
-    }, 4000);
+    }, 3000);
   
     okButton.addEventListener('click', function () {
       instructionBox.style.display = 'none';
