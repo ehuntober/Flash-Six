@@ -17,13 +17,6 @@ document.addEventListener('DOMContentLoaded', function () {
     let backgroundSound = new Audio('./background.mp3');
     let clickSound = new Audio('./click.mp3');
 
-    // function initializeGame() {
-    //     score = 0;
-    //     lives = 3;
-    //     level = 1;
-    //     gameActive = false;
-    // }
-
 
     function initializeGame() {
         score = 0;
@@ -131,17 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 1000);
     }
 
-    // function updateHearts() {
-    //     heartsContainer.innerHTML = '';
 
-    //     for (let i = 0; i < lives; i++) {
-    //         const heartIcon = document.createElement('i');
-    //         heartIcon.className = 'fa-solid fa-heart';
-    //         heartIcon.style.fontSize = '20px';
-    //         heartIcon.style.color = '#ff0000';
-    //         heartsContainer.appendChild(heartIcon);
-    //     }
-    // }
 
     function updateHearts() {
         heartsContainer.innerHTML = '';
@@ -170,52 +153,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // function gameOver() {
-    //     clearInterval(countdownInterval);
-    //     backgroundSound.pause();
-    //     celebrationSound.play();
-
-    //     const popupBox = document.createElement('div');
-    //     popupBox.className = 'popup-box';
-    //     popupBox.innerHTML = `
-    //         <p>Time: ${countdown}s</p>
-    //         <p>Level: ${level}</p>
-    //         <p>Score: ${score}</p>
-    //         <button id="play-again-button">Play Again</button>
-    //     `;
-    //     document.body.appendChild(popupBox);
-
-    //     const playAgainButtonPopup = document.getElementById('play-again-button');
-    //     playAgainButtonPopup.addEventListener('click', playAgain);
-    // }
-
-
-    // function gameOver() {
-    //     clearInterval(countdownInterval);
-    //     backgroundSound.pause();
-    //     celebrationSound.play();
-    
-    //     const popupBox = document.createElement('div');
-    //     popupBox.className = 'popup-box';
-    //     popupBox.innerHTML = `
-    //         <p>Time: ${countdown}s</p>
-    //         <p>Level: ${level}</p>
-    //         <p>Score: ${score}</p>
-    //         <button id="play-again-button">Play Again</button>
-    //     `;
-    //     document.body.appendChild(popupBox);
-    
-    //     const playAgainButtonPopup = document.getElementById('play-again-button');
-    //     playAgainButtonPopup.addEventListener('click', playAgain);
-    
-    //     function playAgain() {
-    //         document.body.removeChild(popupBox);
-    //         celebrationSound.pause();
-    //         celebrationSound.currentTime = 0;
-    //         startGame();
-    //     }
-    // }
-
+   
 
     function gameOver() {
         clearInterval(countdownInterval);
@@ -248,12 +186,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
-
-
-    
-    
-
     function resetGame() {
         countdownDisplay.textContent = '';
         scoreValue.textContent = '';
@@ -261,13 +193,6 @@ document.addEventListener('DOMContentLoaded', function () {
         colorBoxes.innerHTML = '';
     }
 
-    // function playAgain() {
-    //     const popupBox = document.querySelector('.popup-box');
-    //     document.body.removeChild(popupBox);
-    //     celebrationSound.pause();
-    //     celebrationSound.currentTime = 0;
-    //     startGame();
-    // }
 
     function showFeedback(message, color) {
         const feedbackElement = document.createElement('div');

@@ -10,7 +10,8 @@ const assetsToCache = [
   '/icon.png',
   '/background.mp3',
   '/click.mp3',
-  '/celebration.mp3'
+  '/celebration.mp3',
+  
   // Add more assets as needed
 ];
 
