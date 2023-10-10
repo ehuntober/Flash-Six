@@ -12,7 +12,7 @@
 
   <div id="preloader">
     <div class="spinner"></div>
-    <p id="flash-six-text" style="color:white">Flash Six</p>
+    <p id="flash-six-text">Flash Six</p>
 
     <div class="landing">
     <div class="bouncing-ball" id="ball1"></div>
@@ -35,14 +35,13 @@
     </ul>
 
     <p>If you fail to tap the correct box, you'll lose one life.</p>
-    <label for="level-selection">Select Level:</label>
-    <select id="level-selection">
-      <option value="easy">Easy</option>
-      <option value="hard">Hard</option>
-      <option value="difficult">Difficult</option>
-    </select>
     <button id="ok-button">OK</button>
   </div>
+
+
+
+
+
 
   <div id="start-box" class="hidden">
     <p>Tap to start</p>
@@ -53,6 +52,7 @@
       <span class="heart-icon"></span>
       <span class="heart-icon"></span>
     </div>
+
 
     <div id="level"></div>
     <div id="countdown-container">
@@ -67,6 +67,7 @@
       <div class="color-box" id="blue"></div>
     </div>
   </div>
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="script.js"></script>
