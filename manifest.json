@@ -1,7 +1,7 @@
 {
-  "name": "Sucu",
-  "short_name": "Sucu",
-  "description": "Your simple note taking app",
+  "name": "Flash Six",
+  "short_name": "Flash Six",
+  "description": "Your simple Game",
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#ffffff",
