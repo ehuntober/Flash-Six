@@ -1,40 +1,38 @@
 document.addEventListener('DOMContentLoaded', function () {
     const preloader = document.getElementById('preloader');
     const instructionBox = document.getElementById('instruction-box');
+    const okButton = document.getElementById('ok-button');
     const startBox = document.getElementById('start-box');
     const gameContainer = document.getElementById('game-container');
     const heartsContainer = document.getElementById('hearts');
     const levelDisplay = document.getElementById('level');
+    const countdownContainer = document.getElementById('countdown-container');
     const countdownDisplay = document.getElementById('countdown');
     const colorCircle = document.getElementById('color-circle');
     const scoreValue = document.getElementById('score-value');
     const colorBoxes = document.getElementById('color-boxes');
   
-    let score = 0;
-    let lives = 3;
-    let level = 1;
-    let countdown;
+    let score, lives, level, startTime, countdown, countdownInterval;
   
-    preloader.addEventListener('click', function () {
-      preloader.style.display = 'none';
-      instructionBox.style.display = 'block';
-    });
-  
-    instructionBox.addEventListener('click', function () {
-      instructionBox.style.display = 'none';
-      startBox.style.display = 'block';
-    });
-  
-    startBox.addEventListener('click', startGame);
+    function initializeGame() {
+      score = 0;
+      lives = 3;
+      level = 1;
+      startTime = 0;
+      resetGame();
+    }
   
     function startGame() {
       startBox.style.display = 'none';
       gameContainer.style.display = 'block';
-      resetGame();
+      initializeGame();
+      startTime = new Date();
       nextRound();
     }
   
     function nextRound() {
+      clearInterval(countdownInterval);
+  
       const colors = ['red', 'green', 'yellow', 'blue'];
       const randomIndex = Math.floor(Math.random() * colors.length);
       const currentColor = colors[randomIndex];
@@ -47,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
         colorBoxes.appendChild(colorBox);
       }
   
-      countdown = 5 - level;
+      countdown = 8;
       levelDisplay.textContent = 'Level ' + level;
       startCountdown();
     }
@@ -68,8 +66,10 @@ document.addEventListener('DOMContentLoaded', function () {
   
         if (score % 100 === 0) {
           level++;
+          showFeedback('Correct! Level Up!', 'green');
           nextRound();
         } else {
+          showFeedback('Correct!', 'green');
           nextRound();
         }
       } else {
@@ -84,6 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
         gameOver();
       } else {
         updateHearts();
+        showFeedback('Incorrect! Lose a Life!', 'red');
         nextRound();
       }
     }
@@ -91,12 +92,12 @@ document.addEventListener('DOMContentLoaded', function () {
     function startCountdown() {
       countdownDisplay.textContent = countdown;
   
-      const countdownInterval = setInterval(function () {
+      countdownInterval = setInterval(function () {
         countdown--;
   
         if (countdown <= 0) {
           clearInterval(countdownInterval);
-          gameOver();
+          loseLife();
         } else {
           countdownDisplay.textContent = countdown;
         }
@@ -129,17 +130,71 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   
     function gameOver() {
-      alert('Game Over! Your final score is ' + score);
-      resetGame();
+      clearInterval(countdownInterval);
+  
+      const endTime = new Date();
+      const totalGameTime = (endTime - startTime) / 1000;
+  
+      showFeedback('Game Over!', 'red');
+  
+      if (level > 1) {
+        countdown -= Math.floor(level / 3);
+      }
+  
+      if (score > 200 && level > 5) {
+        countdown -= 1;
+      }
+  
+      setTimeout(function () {
+        const popupBox = document.createElement('div');
+        popupBox.className = 'popup-box';
+        popupBox.innerHTML = `
+          <p>Time: ${totalGameTime.toFixed(2)} seconds</p>
+          <p>Level: ${level}</p>
+          <p>Score: ${score}</p>
+          <button id="play-again-button">Play Again</button>
+        `;
+        document.body.appendChild(popupBox);
+  
+        const playAgainButton = document.getElementById('play-again-button');
+        playAgainButton.addEventListener('click', function () {
+          document.body.removeChild(popupBox);
+          startGame();
+        });
+      }, 1000);
     }
   
     function resetGame() {
-      score = 0;
-      lives = 3;
-      level = 1;
-      levelDisplay.textContent = '';
-      countdownDisplay.textContent = '';
+      countdownContainer.style.animation = 'easeOut 1s infinite';
+      scoreValue.textContent = score;
       updateHearts();
     }
+  
+    function showFeedback(message, color) {
+      const feedbackElement = document.createElement('div');
+      feedbackElement.className = 'feedback';
+      feedbackElement.textContent = message;
+      feedbackElement.style.color = color;
+  
+      document.body.appendChild(feedbackElement);
+  
+      setTimeout(function () {
+        document.body.removeChild(feedbackElement);
+      }, 1000);
+    }
+  
+    initializeGame();
+  
+    setTimeout(function () {
+      preloader.style.display = 'none';
+      instructionBox.style.display = 'block';
+    }, 4000);
+  
+    okButton.addEventListener('click', function () {
+      instructionBox.style.display = 'none';
+      startBox.style.display = 'block';
+    });
+  
+    startBox.addEventListener('click', startGame);
   });
   

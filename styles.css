@@ -13,10 +13,103 @@ body {
     text-align: center;
   }
   
-  #preloader {
+  /* #preloader {
     font-size: 2em;
     animation: blink 1s infinite;
+  } */
+  #preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff; /* Set background color */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
+
+  .landing{
+    display: flex;
+
+  }
+  
+  .spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #333; /* Adjust spinner color */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 0.8s linear infinite;
+    margin-bottom: 20px;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  #flash-six-text {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .bouncing-ball {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: transparent;
+    margin: 0 5px;
+    animation: bounce 0.5s infinite alternate;
+  }
+  
+  #ball1 {
+    background-color: #00ff00; /* Green */
+  }
+  
+  #ball2 {
+    background-color: #ff0000; /* Red */
+  }
+  
+  #ball3 {
+    background-color: #ffff00; /* Yellow */
+  }
+  
+  #ball4 {
+    background-color: #0000ff; /* Blue */
+  }
+  
+  @keyframes bounce {
+    to {
+      transform: translateY(20px); /* Adjust bounce height */
+    }
+  }
+  
+  
+  
+
+  #created-by {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1em;
+    color: #555; /* Adjust color as needed */
+  }
+  
+  
+
+
+
+
+
+
   
   #instruction-box, #start-box, #game-container {
     display: none;
@@ -41,6 +134,7 @@ body {
     border-radius: 50%;
     margin: 20px auto;
     background-color: red; /* Initial color, change dynamically with JavaScript */
+    animation: blink 0.8s infinite;
   }
   
   #level {
@@ -48,13 +142,22 @@ body {
     margin: 10px;
   }
   
+  #countdown-container {
+    margin: 10px;
+  }
+  
   #countdown {
     font-size: 1.5em;
-    margin: 10px;
+    animation: easeOut 1s infinite;
   }
   
   #score {
     font-size: 1.5em;
+  }
+  
+  #color-boxes {
+    display: flex;
+    justify-content: space-between;
   }
   
   .color-box {
@@ -69,8 +172,37 @@ body {
   #yellow { background-color: yellow; }
   #blue { background-color: blue; }
   
+  .popup-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
   @keyframes blink {
     0%, 100% { opacity: 0; }
     50% { opacity: 1; }
+  }
+  
+  @keyframes easeOut {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-10px); }
+  }
+  
+
+  /* Add styles for the feedback element */
+.feedback {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    font-weight: bold;
+    z-index: 999;
   }
   

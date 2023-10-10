@@ -7,12 +7,28 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="preloader" class="blink">Flash Six</div>
+  <!-- <div id="preloader" class="blink">Flash Six</div> -->
+
+  <div id="preloader">
+    <div class="spinner"></div>
+    <p id="flash-six-text">Flash Six</p>
+
+    <div class="landing">
+    <div class="bouncing-ball" id="ball1"></div>
+    <div class="bouncing-ball" id="ball2"></div>
+    <div class="bouncing-ball" id="ball3"></div>
+    <div class="bouncing-ball" id="ball4"></div>
+</div>
+
+<p id="created-by">Created by ehuntober</p>
+  </div>
+
   <div id="instruction-box" class="hidden">
     <p>Green means Red</p>
     <p>Red means Green</p>
     <p>Yellow means Blue</p>
     <p>Blue means Yellow</p>
+    <button id="ok-button">OK</button>
   </div>
   <div id="start-box" class="hidden">
     <p>Tap to start</p>
@@ -24,7 +40,9 @@
       <span class="heart-icon"></span>
     </div>
     <div id="level"></div>
-    <div id="countdown"></div>
+    <div id="countdown-container">
+      <div id="countdown"></div>
+    </div>
     <div id="color-circle"></div>
     <div id="score">Score: <span id="score-value">0</span></div>
     <div id="color-boxes">
