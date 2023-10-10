@@ -5,10 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Flash Six</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="./manifest.json">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-  <!-- <div id="preloader" class="blink">Flash Six</div> -->
+   
+
 
   <div id="preloader">
     <div class="spinner"></div>
@@ -36,7 +38,7 @@
 
     <p>If you fail to tap the correct box, you'll lose one life.</p>
     <label for="level-selection">Select Level:</label>
-    <select id="level-selection">
+    <select id="level-selection" style="border: rgb(240, 44, 240); padding: 5px; color: rgb(240, 44, 240); font-size: 16px">
       <option value="easy">Easy</option>
       <option value="hard">Hard</option>
       <option value="difficult">Difficult</option>
@@ -44,7 +46,7 @@
     <button id="ok-button">OK</button>
   </div>
 
-  <div id="start-box" class="hidden">
+  <div id="start-box" class="hidden" style="background-color: rgb(240, 44, 240); color:white;">
     <p>Tap to start</p>
   </div>
   <div id="game-container" class="hidden">
@@ -52,6 +54,7 @@
       <span class="heart-icon"></span>
       <span class="heart-icon"></span>
       <span class="heart-icon"></span>
+      <span id="level-display"></span> <!-- Moved this here for displaying the selected level -->
     </div>
 
     <div id="level"></div>
@@ -70,5 +73,23 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="script.js"></script>
+
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/serviceWorker.js')
+        .then(registration => console.log('Service Worker registered with scope:', registration.scope))
+        .catch(error => console.error('Service Worker registration failed:', error));
+    } 
+
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function() {
+        navigator.serviceWorker
+          .register("/serviceWorker.js")
+          .then(res => console.log("service worker registered"))
+          .catch(err => console.log("service worker not registered", err))
+      })
+    }
+  </script>
 </body>
 </html>
