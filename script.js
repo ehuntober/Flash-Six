@@ -108,8 +108,10 @@ document.addEventListener('DOMContentLoaded', function () {
       heartsContainer.innerHTML = '';
   
       for (let i = 0; i < lives; i++) {
-        const heartIcon = document.createElement('span');
-        heartIcon.className = 'heart-icon';
+        const heartIcon = document.createElement('i');
+        heartIcon.className = 'fa-solid fa-heart';
+        heartIcon.style.fontSize = '20px';
+        heartIcon.style.color = '#ff0000'; // Adjust color as needed
         heartsContainer.appendChild(heartIcon);
       }
     }
